@@ -3,7 +3,7 @@
 <head>
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body onload="startTime()">
 
 <div class="header">
   <h1>VESR Assignment</h1>
@@ -36,7 +36,23 @@
 </div>
 
 <div class="footer">
-  <h2>Footer</h2>
+  <p id="time"><script>
+    function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('time').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};
+  return i;
+}
+  </script></p>
 </div>
 
 </body>
